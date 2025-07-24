@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JT Hair Salon — Beauty Is In The Trust</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  
+  <!-- Instagram Embed -->
+  <script async defer src="https://www.instagram.com/embed.js"></script>
+
+  <style>
+    /* Reset & base */
+    body, html {
+      margin: 0; padding: 0;
+      background: #0f0f0f;
+      color: #f0f0f0;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover, a:focus {
+      color: #bbbbbb;
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0; left: 0;
+      background: rgba(18,18,18,0.95);
+      backdrop-filter: saturate(180%) blur(15px);
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.7);
+      z-index: 1000;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.15em;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo i {
+      font-size: 2.6rem;
+      color: #dddddd;
+    }
+
+    /* Main container */
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 90px 20px 60px;
+      scroll-padding-top: 80px;
+    }
+
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding: 150px 20px 100px;
+    }
+    #hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #ffffff;
+      letter-spacing: 0.2em;
+      user-select: none;
+    }
+    #hero p {
+      font-size: 1.4rem;
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      color: #dddddd;
+      line-height: 1.5;
+    }
+    #hero a.btn-primary {
+      background: #222222;
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 16px 50px;
+      font-size: 1.2rem;
+      border-radius: 40px;
+      box-shadow: none;
+      transition: background 0.3s ease, color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    #hero a.btn-primary:hover {
+      background: #ffffff;
+      color: #000000;
+      border-color: #ffffff;
+    }
+
+    /* About Section */
+    #about {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      color: #eeeeee;
+      padding-bottom: 70px;
+      text-align: center;
+    }
+    #about > div:first-child {
+      max-width: 380px;
+      margin: auto;
+      border-radius: 20px;
+      border: 4px solid #ffffff;
+      box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+      overflow: hidden;
+    }
+    #about img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+    #about .text {
+      flex: 1;
+      font-size: 1.18rem;
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 20px auto 0;
+      color: #eeeeee;
+    }
+
+    /* Pricing Section */
+    #pricing {
+      color: #ddd;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+    #pricing ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #pricing li {
+      padding: 20px 0;
+      border-bottom: 1px solid #333333;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.25rem;
+      color: #ffffff;
+    }
+    #pricing li:last-child {
+      border-bottom: none;
+      font-style: italic;
+      color: #aaaaaa;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+
+    /* Hours Section */
+    #hours {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #bbbbbb;
+      max-width: 420px;
+      margin: 0 auto 90px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    #contact {
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-top: 30px;
+      color: #ffffff;
+    }
+    #contact a {
+      font-weight: 700;
+      color: #dddddd;
+      text-decoration: underline;
+    }
+
+    /* Reviews Section */
+    #reviews {
+      max-width: 840px;
+      margin: 0 auto 90px;
+      color: #cccccc;
+    }
+    .review-card {
+      background: #222222;
+      padding: 30px 35px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 22px rgba(255, 255, 255, 0.15);
+      font-style: italic;
+      transition: background 0.3s ease;
+    }
+    .review-card:hover {
+      background: #333333;
+    }
+    .review-stars {
+      color: #ffcc33;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+    .review-author {
+      font-weight: 700;
+      text-align: right;
+      margin-top: 10px;
+      color: #dddddd;
+      user-select: none;
+    }
+
+    /* Instagram Section */
+    #instagram {
+      max-width: 960px;
+      margin: 0 auto 80px;
+      color: #ffffff;
+    }
+    #instagram h2 {
+      margin-bottom: 40px;
+    }
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .instagram-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .instagram-grid blockquote {
+      border-radius: 15px !important;
+      overflow: hidden !important;
+      background: #000 !important;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #777777;
+      font-size: 1rem;
+      padding: 40px 20px;
+      user-select: none;
+      border-top: 1px solid #222222;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      #about {
+        flex-direction: column;
+        text-align: center;
+      }
+      #about .text {
+        max-width: 100%;
+      }
+      #pricing li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      JT Hair <i class="bi bi-scissors"></i>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero">
+      <h1>JT Hair</h1>
+      <p>
+        Beauty Is In The Trust<br />
+        Dry Cutting and Balayage Specialist for Men and Women — Fast, Efficient & Stylish
+      </p>
+      <a href="#contact" class="btn btn-primary">Make Your Appointment</a>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div>
+        <img
+          src="https://i.imgur.com/QKuIyym.png"
+          alt="Johnny Thai"
+          loading="lazy"
+          width="350"
+          height="auto"
+        />
+      </div>
+      <div class="text">
+        <p>
+          I'm Johnny Thai, a hair stylist with over 15 years experience specializing in men and women dry cutting. For me, it's all about saving time and efficiency — who doesn't want a fresh head of hair in half the usual time?
+        </p>
+        <p>
+          My passion for hair is a never-ending learning curve. Thanks to social media, my cutting and coloring skills keep improving. Tell me what you want, sit back, relax, and love yourself more.
+        </p>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing">
+      <h2>Pricing</h2>
+      <ul>
+        <li><span>Women Dry Cut</span><span>$65 — 45 mins</span></li>
+        <li><span>Women Dry Cut + Shampoo & Blow Dry</span><span>$90 — 60 mins</span></li>
+        <li><span>Blowout</span><span>$45 — 30 mins</span></li>
+        <li><span>Men Buzz Cut</span><span>$30 — 15 mins</span></li>
+        <li><span>Men Scissor Cut</span><span>$45 — 25 mins</span></li>
+        <li><span>Men Shampoo</span><span>$15 — 5 mins</span></li>
+        <li>All coloring and treatments are based on consultation.</li>
+      </ul>
+    </section>
+
+    <!-- Hours -->
+    <section id="hours">
+      <h2>Business Hours</h2>
+      <p>
+        Tuesday - Saturday: 10am to 6pm<br />
+        Major holidays closed — appointment only
+      </p>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Phone: <a href="tel:+183286086584">832-860-6584</a><br />
+        Preferred texting but calls accepted
+      </p>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews">
+      <h2>What Clients Say</h2>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>
+          "Johnny gave me the best cut ever. Super fast, precise, and stylish!"
+        </p>
+        <div class="review-author">– Sarah M., Yelp</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>
+          "I love how efficient Johnny is, and my hair always looks amazing."
+        </p>
+        <div class="review-author">– Mark D., Google</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p>
+          "Professional, friendly, and highly skilled. JT Hair is my go-to spot."
+        </p>
+        <div class="review-author">– Emily K., Yelp</div>
+      </div>
+    </section>
+
+    <!-- Instagram Gallery -->
+    <section id="instagram">
+      <h2>Our Work on Instagram</h2>
+      <div class="instagram-grid">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COBZVLjJXBp/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CORu5x2JBsP/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BuDXioogv-n/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BsRCnhBgkki/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BrqXyi7AZjl/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BwAnBi2g37V/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Beauty Is In The Trust</p>
+    <p>© 2025 JT Hair Salon | Designed by Johnny Thai</p>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
