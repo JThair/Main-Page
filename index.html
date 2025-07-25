@@ -18,7 +18,6 @@
   <script async defer src="https://www.instagram.com/embed.js"></script>
 
   <style>
-    /* Reset & base */
     body, html {
       margin: 0; padding: 0;
       background: #0f0f0f;
@@ -26,7 +25,6 @@
       font-family: 'Montserrat', sans-serif;
       scroll-behavior: smooth;
     }
-
     a {
       color: #ffffff;
       text-decoration: none;
@@ -36,8 +34,6 @@
       color: #bbbbbb;
       text-decoration: underline;
     }
-
-    /* Header */
     header {
       position: fixed;
       width: 100%;
@@ -66,16 +62,12 @@
       font-size: 2.6rem;
       color: #dddddd;
     }
-
-    /* Main container */
     main {
       max-width: 960px;
       margin: 0 auto;
       padding: 90px 20px 60px;
       scroll-padding-top: 80px;
     }
-
-    /* Hero Section */
     #hero {
       text-align: center;
       padding: 150px 20px 100px;
@@ -97,7 +89,6 @@
       color: #dddddd;
       line-height: 1.5;
     }
-    /* Keep phrase together */
     #hero p span.no-wrap {
       white-space: nowrap;
     }
@@ -119,8 +110,6 @@
       color: #000000;
       border-color: #ffffff;
     }
-
-    /* About Section */
     #about {
       display: flex;
       gap: 50px;
@@ -164,8 +153,6 @@
       font-weight: 600;
       color: #ddd;
     }
-
-    /* Pricing Section */
     #pricing {
       color: #ddd;
       max-width: 700px;
@@ -193,8 +180,6 @@
       font-weight: 400;
       font-size: 1.1rem;
     }
-
-    /* Hours Section */
     #hours {
       text-align: center;
       font-size: 1.3rem;
@@ -204,8 +189,30 @@
       line-height: 1.5;
       font-weight: 600;
     }
-
-    /* Contact Section */
+    #location-box {
+      max-width: 400px;
+      margin: 22px auto 0 auto;
+      box-shadow: 0 4px 24px #0006;
+      background: #191919;
+      border: 2px solid #ffc107;
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+    #location-box i {
+      font-size: 2rem;
+      color: #ffc107;
+      flex-shrink: 0;
+    }
+    #location-box span {
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+    }
     #contact {
       text-align: center;
       font-weight: 700;
@@ -219,8 +226,6 @@
       color: #dddddd;
       text-decoration: underline;
     }
-
-    /* Reviews Section */
     #reviews {
       max-width: 840px;
       margin: 0 auto 90px;
@@ -251,8 +256,6 @@
       color: #dddddd;
       user-select: none;
     }
-
-    /* Instagram Section */
     #instagram {
       max-width: 960px;
       margin: 0 auto 80px;
@@ -266,26 +269,21 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-
     @media (max-width: 900px) {
       .instagram-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
     @media (max-width: 600px) {
       .instagram-grid {
         grid-template-columns: 1fr;
       }
     }
-
     .instagram-grid blockquote {
       border-radius: 15px !important;
       overflow: hidden !important;
       background: #000 !important;
     }
-
-    /* Footer */
     footer {
       text-align: center;
       color: #777777;
@@ -295,8 +293,19 @@
       border-top: 1px solid #222222;
       position: relative;
     }
-
-    /* Visitor Counter */
+    .social-links {
+      margin: 18px 0 6px 0;
+      font-size: 1.9rem;
+    }
+    .social-links a {
+      margin: 0 18px;
+      color: #fff;
+      text-shadow: 0 2px 8px #1118;
+      vertical-align: middle;
+    }
+    .social-links a:hover {
+      color: #fa5746;
+    }
     #visitor-counter {
       margin-top: 15px;
       font-style: italic;
@@ -304,8 +313,6 @@
       color: #aaa;
       user-select: none;
     }
-
-    /* Responsive */
     @media (max-width: 900px) {
       #about {
         flex-wrap: wrap;
@@ -392,6 +399,10 @@
         Tuesday - Saturday: 10am to 6pm<br />
         Major holidays closed — appointment only
       </p>
+      <div id="location-box">
+        <i class="bi bi-geo-alt-fill"></i>
+        <span>3101 Richmond Ave. # 215,<br>Houston, TX 77098</span>
+      </div>
     </section>
 
     <!-- Contact -->
@@ -406,7 +417,6 @@
     <!-- Reviews -->
     <section id="reviews">
       <h2>What Clients Say</h2>
-
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
         <p>
@@ -447,26 +457,14 @@
   <footer>
     <p>Beauty Is In The Trust</p>
     <p>© 2025 JT Hair Salon | Designed by Johnny Thai</p>
+    <div class="social-links">
+      <a href="https://share.google/MixDa2BV4KUxQkbD6" target="_blank" title="Find us on Google">
+        <i class="bi bi-google"></i>
+      </a>
+      <a href="https://www.yelp.com/biz/jt-hair-salon-houston" target="_blank" title="Find us on Yelp">
+        <i class="bi bi-yelp"></i>
+      </a>
+    </div>
     <p id="visitor-counter">Visits from this browser: 0</p>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    // Visitor count per browser using localStorage
-    const visitKey = 'jtHairVisitCount';
-    let count = localStorage.getItem(visitKey);
-
-    if (count === null) {
-      count = 1;
-    } else {
-      count = parseInt(count, 10) + 1;
-    }
-
-    localStorage.setItem(visitKey, count);
-
-    document.getElementById('visitor-counter').textContent = 'Visits from this browser: ' + count;
-  </script>
-</body>
-</html>
