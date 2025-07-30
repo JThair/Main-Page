@@ -14,355 +14,158 @@
   <script async defer src="https://www.instagram.com/embed.js"></script>
   <style>
     body, html {
-      margin: 0;
-      padding: 0;
-      background: #0f0f0f;
-      color: #f0f0f0;
+      margin: 0; padding: 0;
+      background: #0f0f0f; color: #f0f0f0;
       font-family: 'Montserrat', sans-serif;
       scroll-behavior: smooth;
     }
-    a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    a:hover, a:focus {
-      color: #bbb;
-      text-decoration: underline;
-    }
+    a { color: #fff; text-decoration: none; transition: color .3s; }
+    a:hover, a:focus { color: #bbb; text-decoration: underline; }
 
     header {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
+      position: fixed; top: 0; left: 0;
+      width: 100%; height: 70px;
       background: rgba(18,18,18,0.95);
       backdrop-filter: saturate(180%) blur(15px);
       box-shadow: 0 2px 8px rgb(0 0 0 / 0.7);
+      display: flex; justify-content: center; align-items: center;
       z-index: 1000;
-      height: 70px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
     .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.15em;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 2.4rem; font-weight: 700;
+      color: #fff; letter-spacing: .15em;
+      display: flex; align-items: center; gap: 8px;
     }
-    .logo i {
-      font-size: 2.6rem;
-      color: #ddd;
-    }
+    .logo i { font-size: 2.6rem; color: #ddd; }
 
     main {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 90px 20px 60px;
+      max-width: 960px; margin: 0 auto;
+      padding: 100px 20px 60px; /* adjust for fixed header */
     }
 
-    /* Hero Section */
-    #hero {
-      text-align: center;
-      padding: 150px 20px 100px;
-    }
+    /* Hero */
+    #hero { text-align: center; padding-bottom: 80px; }
     #hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 4.2rem;
-      font-weight: 700;
-      margin-bottom: 25px;
-      color: #fff;
-      letter-spacing: 0.2em;
-      user-select: none;
+      font-size: 4.2rem; font-weight: 700;
+      margin-bottom: 25px; color: #fff;
+      letter-spacing: .2em; user-select: none;
     }
     #hero p {
-      font-size: 1.4rem;
-      font-weight: 500;
-      max-width: 600px;
-      margin: 0 auto 50px;
-      color: #ddd;
-      line-height: 1.5;
-    }
-    #hero p span.no-wrap {
-      white-space: nowrap;
+      font-size: 1.4rem; font-weight: 500;
+      max-width: 600px; margin: 0 auto 30px;
+      color: #ddd; line-height: 1.5;
     }
     #hero a.btn-primary {
-      background: #222;
-      border: 2px solid #fff;
-      color: #fff;
-      font-weight: 700;
-      padding: 16px 50px;
-      font-size: 1.2rem;
-      border-radius: 40px;
-      box-shadow: none;
-      transition: background 0.3s, color 0.3s;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      background: #222; border: 2px solid #fff;
+      color: #fff; font-weight: 700;
+      padding: 16px 50px; font-size: 1.2rem;
+      border-radius: 40px; text-transform: uppercase;
+      letter-spacing: .12em; transition: background .3s, color .3s;
     }
     #hero a.btn-primary:hover {
-      background: #fff;
-      color: #000;
-      border-color: #fff;
+      background: #fff; color: #000; border-color: #fff;
     }
-
-    /* neon glow button */
     .neon-btn {
       display: inline-block;
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 14px 36px;
-      color: #fff;
-      border: 2px solid #fff;
-      border-radius: 8px;
-      text-decoration: none;
-      box-shadow:
-        0 0 8px #fff,
-        0 0 16px #fff,
-        0 0 24px #fff,
-        0 0 32px rgba(255,255,255,0.6);
-      transition: box-shadow 0.2s ease-in-out;
+      font-size: 1.4rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .1em;
+      padding: 14px 36px; color: #fff;
+      border: 2px solid #fff; border-radius: 8px;
+      box-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px #fff, 0 0 32px rgba(255,255,255,.6);
+      transition: box-shadow .2s ease-in-out;
     }
-    .neon-btn:hover,
-    .neon-btn:focus {
-      box-shadow:
-        0 0 12px #fff,
-        0 0 24px #fff,
-        0 0 36px #fff,
-        0 0 48px rgba(255,255,255,0.8);
-      color: #fff;
+    .neon-btn:hover {
+      box-shadow: 0 0 12px #fff, 0 0 24px #fff, 0 0 36px #fff, 0 0 48px rgba(255,255,255,.8);
     }
 
-    /* About Section */
+    /* About */
     #about {
-      display: flex;
-      gap: 50px;
-      flex-wrap: nowrap;
-      color: #eee;
-      padding-bottom: 70px;
-      text-align: left;
-      align-items: stretch;
-      max-width: 960px;
-      margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 50px;
+      margin-bottom: 60px;
     }
     #about > div:first-child {
-      max-width: 380px;
-      border-radius: 20px;
-      border: 4px solid #fff;
-      box-shadow: 0 6px 25px rgba(255,255,255,0.3);
+      flex: 0 0 380px;
+      border: 4px solid #fff; border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(255,255,255,.3);
       overflow: hidden;
-      flex-shrink: 0;
     }
-    #about > div:first-child img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 20px;
-      display: block;
-    }
+    #about img { width: 100%; display: block; }
     #about .text {
-      flex-grow: 1;
-      font-size: 1rem;
-      line-height: 1.4;
-      color: #eee;
-      display: flex;
-      flex-direction: column;
+      flex: 1; color: #eee; padding: 0 20px;
+      display: flex; flex-direction: column;
       justify-content: center;
-      padding-left: 20px;
     }
     #about .text p:last-child {
-      font-style: italic;
-      text-align: center;
-      margin-top: auto;
-      font-weight: 600;
-      color: #ddd;
+      margin-top: 1rem; text-align: center;
+      font-style: italic; color: #ddd;
     }
 
     /* Pricing */
-    #pricing {
-      color: #ddd;
-      max-width: 700px;
-      margin: 0 auto;
-      padding-bottom: 80px;
-    }
+    #pricing { margin-bottom: 60px; }
     #pricing ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      list-style: none; padding: 0; margin: 0; max-width: 700px;
+      margin: 0 auto 60px auto;
     }
     #pricing li {
-      padding: 20px 0;
-      border-bottom: 1px solid #333;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      font-size: 1.25rem;
-      color: #fff;
+      display: flex; justify-content: space-between;
+      padding: 20px 0; border-bottom: 1px solid #333;
+      color: #fff; font-weight: 600;
     }
-    #pricing li:last-child {
-      border-bottom: none;
-      font-style: italic;
-      color: #aaa;
-      font-weight: 400;
-      font-size: 1.1rem;
-    }
+    #pricing li:last-child { border-bottom: none; font-style: italic; color: #aaa; }
 
     /* Hours & Location */
     #hours {
-      text-align: center;
-      font-size: 1.3rem;
-      color: #bbb;
-      max-width: 420px;
-      margin: 0 auto 90px;
-      line-height: 1.5;
-      font-weight: 600;
+      text-align: center; color: #bbb; margin-bottom: 60px;
     }
+    #hours h2 { margin-bottom: .5rem; }
     #location-box {
-      max-width: 400px;
-      margin: 22px auto 0 auto;
-      box-shadow: 0 4px 24px #0006;
-      background: #191919;
-      border: 2px solid #ffc107;
-      border-radius: 16px;
-      padding: 18px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 10px;
+      background: #191919; border: 2px solid #ffc107;
+      border-radius: 16px; padding: 18px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; max-width: 400px; margin: 1rem auto;
     }
-    #location-box i {
-      font-size: 2rem;
-      color: #ffc107;
-      flex-shrink: 0;
-    }
-    #location-box span {
-      font-size: 1.15rem;
-      color: #f0f0f0;
-      font-weight: bold;
-      letter-spacing: 0.04em;
-    }
+    #location-box i { color: #ffc107; font-size: 2rem; }
+    #location-box span { color: #f0f0f0; font-weight: bold; }
 
     /* Contact */
     #contact {
-      text-align: center;
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-top: 30px;
-      margin-bottom: 100px;
-      color: #fff;
+      text-align: center; margin-bottom: 60px;
     }
-    #contact a {
-      font-weight: 700;
-      color: #ddd;
-      text-decoration: underline;
-    }
+    #contact h2 { margin-bottom: .5rem; }
+    #contact a { color: #ffd700; text-decoration: underline; }
 
     /* Reviews */
-    #reviews {
-      max-width: 840px;
-      margin: 0 auto 90px;
-      color: #ccc;
-    }
+    #reviews { margin-bottom: 60px; max-width: 840px; margin: 0 auto 60px auto; }
     .review-card {
-      background: #222;
-      padding: 30px 35px;
-      border-radius: 20px;
-      margin-bottom: 28px;
-      box-shadow: 0 0 22px rgba(255,255,255,0.15);
+      background: #222; padding: 30px; border-radius: 20px;
+      box-shadow: 0 0 22px rgba(255,255,255,.15); margin-bottom: 28px;
       font-style: italic;
-      transition: background 0.3s;
     }
-    .review-card:hover {
-      background: #333;
-    }
-    .review-stars {
-      color: #ffcc33;
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      user-select: none;
-    }
-    .review-author {
-      font-weight: 700;
-      text-align: right;
-      margin-top: 10px;
-      color: #ddd;
-      user-select: none;
-    }
+    .review-stars { color: #ffcc33; font-size: 1.4rem; margin-bottom: 15px; }
+    .review-author { text-align: right; color: #ddd; font-weight: 700; }
 
-    /* Instagram Section */
-    #instagram {
-      max-width: 960px;
-      margin: 0 auto 80px;
-      color: #fff;
-    }
-    #instagram h2 {
-      margin-bottom: 40px;
-    }
+    /* Instagram */
+    #instagram { margin-bottom: 60px; }
+    #instagram h2 { text-align: center; margin-bottom: 40px; }
     .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 900px) {
-      .instagram-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 600px) {
-      .instagram-grid {
-        grid-template-columns: 1fr;
-      }
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 20px; max-width: 960px; margin: 0 auto;
     }
     .instagram-grid blockquote {
-      border-radius: 15px !important;
+      background: #000; border-radius: 15px !important;
       overflow: hidden !important;
-      background: #000 !important;
     }
 
     /* Footer */
     footer {
-      text-align: center;
-      color: #777;
-      font-size: 1rem;
-      padding: 40px 20px 70px;
-      user-select: none;
+      text-align: center; color: #777; padding: 40px 20px 70px;
       border-top: 1px solid #222;
-      position: relative;
     }
-    .social-links {
-      margin: 18px 0 6px;
-      font-size: 1.9rem;
-    }
-    .social-links a {
-      margin: 0 18px;
-      color: #fff;
-      text-shadow: 0 2px 8px #1118;
-      vertical-align: middle;
-    }
-    .social-links a:hover {
-      color: #fa5746;
-    }
-    #visitor-counter {
-      margin-top: 15px;
-      font-style: italic;
-      font-size: 0.9rem;
-      color: #aaa;
-      user-select: none;
-    }
-
-    @media (max-width: 900px) {
-      #about {flex-wrap: wrap; text-align: center;}
-      #about > div:first-child, #about .text {max-width: 100%;}
-      #about .text {padding-left: 0;}
-      #pricing li {flex-direction: column; align-items: flex-start; gap: 6px;}
-    }
+    .social-links { margin-bottom: 10px; font-size: 1.9rem; }
+    .social-links a { margin: 0 12px; color: #fff; }
+    #visitor-counter { font-style: italic; color: #aaa; }
   </style>
 </head>
 <body>
@@ -378,51 +181,32 @@
       <h1>JT Hair</h1>
       <p>
         Beauty Is In The Trust<br />
-        <span class="no-wrap">Dry Cutting and Balayage Specialist for Men and Women</span> Fast, Efficient & Stylish
+        <span class="no-wrap">Dry Cutting and Balayage Specialist for Men and Women</span><br />
+        Fast, Efficient & Stylish
       </p>
-      <a href="https://jthair.github.io/Booking/" class="btn btn-primary">
-        Make Your Appointment
-      </a>
-
-      <!-- New Client Exclusive Offer neon button -->
-      <div style="margin-top: 40px; text-align: center;">
-        <a href="https://jthair.github.io/Offers/" class="neon-btn">
-          New Client Exclusive Offer click here
-        </a>
+      <a href="https://jthair.github.io/Booking/" class="btn btn-primary">Make Your Appointment</a>
+      <div style="margin-top:40px;">
+        <a href="https://jthair.github.io/Offers/" class="neon-btn">New Client Exclusive Offer click here</a>
       </div>
     </section>
 
     <!-- About -->
     <section id="about">
       <div>
-        <img
-          src="https://i.imgur.com/QKuIyym.png"
-          alt="Johnny Thai"
-          loading="lazy"
-          width="350"
-          height="auto"
-        />
+        <img src="https://i.imgur.com/QKuIyym.png" alt="Johnny Thai" />
       </div>
       <div class="text">
-        <p>
-          I’m Johnny Thai, a stylist with over 15 years of experience working with both men and women. I specialize in dry cuts that save you time without compromising style. Honestly, who wouldn’t want a fresh, sharp look in half the usual time?
-        </p>
-        <p>
-          Besides cutting, I’m also known for my balayage coloring technique. When your hair is in good condition, and expectations are realistic, balayage adds natural color and dimension to dull hair. It is the most natural and efficient way to highlight your hair ever invented.
-        </p>
-        <p>
-          I was unable to operate for a while due to my unexpected open heart surgery, but now I’m back better than ever.
-        </p>
-        <p>
-          Hair isn’t just a job for me, it’s a passion that grows stronger every day. Thanks to social media, I’m always learning new techniques to keep my skills sharp and bring the best to you. Just tell me what you want, then sit back, relax, and get ready to love your new look.
-        </p>
+        <p>I’m Johnny Thai, a stylist with over 15 years of experience working with both men and women. I specialize in dry cuts that save you time without compromising style.</p>
+        <p>Besides cutting, I’m also known for my balayage coloring technique. When your hair is in good condition, and expectations are realistic, balayage adds natural color and dimension to dull hair.</p>
+        <p>I was unable to operate for a while due to my unexpected open heart surgery, but now I’m back better than ever.</p>
+        <p>Hair isn’t just a job for me, it’s a passion that grows stronger every day. Thanks to social media, I’m always learning new techniques to bring you the best look.</p>
         <p><em>Beauty Is In The Trust</em></p>
       </div>
     </section>
 
     <!-- Pricing -->
     <section id="pricing">
-      <h2>Pricing</h2>
+      <h2 class="text-center">Pricing</h2>
       <ul>
         <li><span>Women Dry Cut</span><span>$65 — 45 mins</span></li>
         <li><span>Women Dry Cut + Shampoo & Blow Dry</span><span>$90 — 60 mins</span></li>
@@ -437,48 +221,35 @@
     <!-- Hours & Location -->
     <section id="hours">
       <h2>Business Hours</h2>
-      <p>
-        Tuesday – Saturday: 10am to 6pm<br />
-        Major holidays closed<br />
-        Appointment only
-      </p>
+      <p>Tuesday – Saturday: 10am to 6pm<br />Major holidays closed<br />Appointment only</p>
       <div id="location-box">
         <i class="bi bi-geo-alt-fill"></i>
-        <span>3101 Richmond Ave. # 215,<br />Houston, TX 77098</span>
+        <span>3101 Richmond Ave. # 215,<br/>Houston, TX 77098</span>
       </div>
     </section>
 
     <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
-      <p>
-        Phone: <a href="tel:+18323812840">832-381-2840</a><br />
-        Preferred texting but calls accepted
-      </p>
+      <p>Phone: <a href="tel:+18323812840">832-381-2840</a><br/>Preferred texting but calls accepted</p>
     </section>
 
     <!-- Reviews -->
     <section id="reviews">
-      <h2>What Clients Say</h2>
+      <h2 class="text-center">What Clients Say</h2>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>
-          "Johnny gave me the best cut ever. Super fast, precise, and stylish!"
-        </p>
+        <p>"Johnny gave me the best cut ever. Super fast, precise, and stylish!"</p>
         <div class="review-author">– Sarah M., Yelp</div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>
-          "I love how efficient Johnny is, and my hair always looks amazing."
-        </p>
+        <p>"I love how efficient Johnny is, and my hair always looks amazing."</p>
         <div class="review-author">– Mark D., Google</div>
       </div>
       <div class="review-card">
         <div class="review-stars">★★★★★</div>
-        <p>
-          "Professional, friendly, and highly skilled. JT Hair is my go-to spot."
-        </p>
+        <p>"Professional, friendly, and highly skilled. JT Hair is my go-to spot."</p>
         <div class="review-author">– Emily K., Yelp</div>
       </div>
     </section>
@@ -487,37 +258,51 @@
     <section id="instagram">
       <h2>Some of my work on Instagram</h2>
       <div class="instagram-grid">
-        <!-- your existing embed blockquotes -->
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COBZVLjJXBp/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/COBZVLjJXBp/" target="_blank"></a>
+        </blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CORu5x2JBsP/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/CORu5x2JBsP/" target="_blank"></a>
+        </blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BuDXioogv-n/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/BuDXioogv-n/" target="_blank"></a>
+        </blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BsRCnhBgkki/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/BsRCnhBgkki/" target="_blank"></a>
+        </blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BrqXyi7AZjl/" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/BrqXyi7AZjl/" target="_blank"></a>
+        </blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BwAnBi2g37V/" data-instgrm-version="#14">
+          <a href="https://www.instagram.com/p/BwAnBi2g37V/" target="_blank"></a>
+        </blockquote>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>Beauty Is In The Trust</p>
     <p>© 2025 JT Hair Salon | Designed by Johnny Thai</p>
     <div class="social-links">
-      <a href="https://share.google/MixDa2BV4KUxQkbD6" target="_blank" title="Find us on Google">
-        <i class="bi bi-google"></i>
-      </a>
-      <a href="https://www.yelp.com/biz/jt-hair-salon-houston" target="_blank" title="Find us on Yelp">
-        <i class="bi bi-yelp"></i>
-      </a>
-      <a href="https://www.instagram.com/jt_hair/" target="_blank" title="Follow us on Instagram">
-        <i class="bi bi-instagram"></i>
-      </a>
+      <a href="https://share.google/MixDa2BV4KUxQkbD6" target="_blank"><i class="bi bi-google"></i></a>
+      <a href="https://www.yelp.com/biz/jt-hair-salon-houston" target="_blank"><i class="bi bi-yelp"></i></a>
+      <a href="https://www.instagram.com/jt_hair/" target="_blank"><i class="bi bi-instagram"></i></a>
     </div>
     <p id="visitor-counter">Visits from this browser: 0</p>
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var visits = localStorage.getItem('jt_hair_visitor_count');
-      visits = visits ? parseInt(visits, 10) : 0;
+    document.addEventListener('DOMContentLoaded', () => {
+      // Visitor counter
+      let visits = parseInt(localStorage.getItem('jt_hair_visitor_count') || '0', 10);
       visits++;
       localStorage.setItem('jt_hair_visitor_count', visits);
-      var counterElem = document.getElementById('visitor-counter');
-      if (counterElem) {
-        counterElem.textContent = 'Visits from this browser: ' + visits;
+      document.getElementById('visitor-counter').textContent = 'Visits from this browser: ' + visits;
+
+      // Ensure Instagram embeds render
+      if (window.instgrm && instgrm.Embeds && typeof instgrm.Embeds.process === 'function') {
+        instgrm.Embeds.process();
       }
     });
   </script>
