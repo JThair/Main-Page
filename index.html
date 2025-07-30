@@ -34,14 +34,14 @@
     .logo {
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem; font-weight: 700;
-      color: #fff; letter-spacing: .15em;
+      letter-spacing: .15em; color: #fff;
       display: flex; align-items: center; gap: 8px;
     }
     .logo i { font-size: 2.6rem; color: #ddd; }
 
     main {
       max-width: 960px; margin: 0 auto;
-      padding: 100px 20px 60px; /* account for fixed header */
+      padding: 100px 20px 60px; /* account for header */
     }
 
     /* Hero */
@@ -153,34 +153,30 @@
     .review-stars { color: #ffcc33; font-size: 1.4rem; margin-bottom: 15px; }
     .review-author { text-align: right; color: #ddd; font-weight: 700; }
 
-    /* Instagram grid: equal squares */
+    /* Instagram grid: enforce perfect squares */
     #instagram { margin-bottom: 60px; }
-    #instagram h2 { text-align: center; margin-bottom: 40px; }
+    #instagram h2 { text-align: center;	margin-bottom: 40px; }
     .instagram-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
     @media (max-width: 900px) {
-      .instagram-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 600px) {
-      .instagram-grid {
-        grid-template-columns: 1fr;
-      }
+      .instagram-grid { grid-template-columns: 1fr; }
     }
     .instagram-grid blockquote {
-      position: relative;
-      width: 100%;
-      padding-top: 100%; /* 1:1 aspect ratio */
-      border-radius: 15px !important;
-      overflow: hidden !important;
-      margin: 0;
+      position: relative !important;
+      margin: 0 !important; padding: 0 !important; border: none !important;
     }
-    .instagram-grid blockquote > div,
-    .instagram-grid blockquote iframe {
+    .instagram-grid blockquote::before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+    .instagram-grid blockquote > div {
       position: absolute !important;
       top: 0; left: 0;
       width: 100% !important;
@@ -217,7 +213,7 @@
       </p>
       <a href="https://jthair.github.io/Booking/" class="btn btn-primary">Make Your Appointment</a>
       <div>
-        <a href="https://jthair.github.io/Offers/" class="neon-btn">New Clients Exclusive Offers click here</a>
+        <a href="https://jthair.github.io/Offers/" class="neon-btn">New Clients Exclusive Offers – Click Here</a>
       </div>
     </section>
 
@@ -240,7 +236,7 @@
       <h2>Pricing</h2>
       <ul>
         <li><span>Women Dry Cut</span><span>$65 — 45 mins</span></li>
-        <li><span>Women Dry Cut + Shampoo & Blow Dry</span><span>$90 — 60 mins</span></li>
+        <li><span>Women Dry Cut + Shampoo &amp; Blow Dry</span><span>$90 — 60 mins</span></li>
         <li><span>Blowout</span><span>$45 — 30 mins</span></li>
         <li><span>Men Buzz Cut</span><span>$30 — 15 mins</span></li>
         <li><span>Men Scissor Cut</span><span>$45 — 25 mins</span></li>
