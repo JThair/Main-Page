@@ -13,55 +13,355 @@
   <!-- Instagram Embed -->
   <script async defer src="https://www.instagram.com/embed.js"></script>
   <style>
-    body, html {margin:0; padding:0; background:#0f0f0f; color:#f0f0f0; font-family:'Montserrat',sans-serif; scroll-behavior:smooth;}
-    a {color:#fff; text-decoration:none; transition:color 0.3s;}
-    a:hover, a:focus {color:#bbb; text-decoration:underline;}
-    header {position:fixed; width:100%; top:0; left:0; background:rgba(18,18,18,0.95); backdrop-filter:saturate(180%) blur(15px); box-shadow:0 2px 8px rgb(0 0 0 / 0.7); z-index:1000; height:70px; display:flex; justify-content:center; align-items:center;}
-    .logo {font-family:'Playfair Display',serif; font-size:2.4rem; font-weight:700; color:#fff; letter-spacing:0.15em; user-select:none; display:flex; align-items:center; gap:8px;}
-    .logo i {font-size:2.6rem; color:#ddd;}
-    main {max-width:960px; margin:0 auto; padding:90px 20px 60px;}
-    #hero {text-align:center; padding:150px 20px 100px;}
-    #hero h1 {font-family:'Playfair Display',serif; font-size:4.2rem; font-weight:700; margin-bottom:25px; color:#fff; letter-spacing:0.2em; user-select:none;}
-    #hero p {font-size:1.4rem; font-weight:500; max-width:600px; margin:0 auto 50px; color:#ddd; line-height:1.5;}
-    #hero p span.no-wrap {white-space:nowrap;}
-    #hero a.btn-primary {background:#222; border:2px solid #fff; color:#fff; font-weight:700; padding:16px 50px; font-size:1.2rem; border-radius:40px; box-shadow:none; transition:background 0.3s, color 0.3s; text-transform:uppercase; letter-spacing:0.12em;}
-    #hero a.btn-primary:hover {background:#fff; color:#000; border-color:#fff;}
-    #about {display:flex; gap:50px; flex-wrap:nowrap; color:#eee; padding-bottom:70px; text-align:left; align-items:stretch; max-width:960px; margin:0 auto;}
-    #about > div:first-child {max-width:380px; border-radius:20px; border:4px solid #fff; box-shadow:0 6px 25px rgba(255,255,255,0.3); overflow:hidden; flex-shrink:0;}
-    #about > div:first-child img {width:100%; height:100%; object-fit:cover; border-radius:20px; display:block;}
-    #about .text {flex-grow:1; font-size:1rem; line-height:1.4; color:#eee; display:flex; flex-direction:column; justify-content:center; padding-left:20px;}
-    #about .text p:last-child {font-style:italic; text-align:center; margin-top:auto; font-weight:600; color:#ddd;}
-    #pricing {color:#ddd; max-width:700px; margin:0 auto; padding-bottom:80px;}
-    #pricing ul {list-style:none; padding:0; margin:0;}
-    #pricing li {padding:20px 0; border-bottom:1px solid #333; font-weight:600; display:flex; justify-content:space-between; font-size:1.25rem; color:#fff;}
-    #pricing li:last-child {border-bottom:none; font-style:italic; color:#aaa; font-weight:400; font-size:1.1rem;}
-    #hours {text-align:center; font-size:1.3rem; color:#bbb; max-width:420px; margin:0 auto 90px; line-height:1.5; font-weight:600;}
-    #location-box {max-width:400px; margin:22px auto 0 auto; box-shadow:0 4px 24px #0006; background:#191919; border:2px solid #ffc107; border-radius:16px; padding:18px 20px; display:flex; align-items:center; justify-content:flex-start; gap:10px;}
-    #location-box i {font-size:2rem; color:#ffc107; flex-shrink:0;}
-    #location-box span {font-size:1.15rem; color:#f0f0f0; font-weight:bold; letter-spacing:0.04em;}
-    #contact {text-align:center; font-weight:700; font-size:1.4rem; margin-top:30px; margin-bottom:100px; color:#fff;}
-    #contact a {font-weight:700; color:#ddd; text-decoration:underline;}
-    #reviews {max-width:840px; margin:0 auto 90px; color:#ccc;}
-    .review-card {background:#222; padding:30px 35px; border-radius:20px; margin-bottom:28px; box-shadow:0 0 22px rgba(255,255,255,0.15); font-style:italic; transition:background 0.3s;}
-    .review-card:hover {background:#333;}
-    .review-stars {color:#ffcc33; font-size:1.4rem; margin-bottom:15px; user-select:none;}
-    .review-author {font-weight:700; text-align:right; margin-top:10px; color:#ddd; user-select:none;}
-    #instagram {max-width:960px; margin:0 auto 80px; color:#fff;}
-    #instagram h2 {margin-bottom:40px;}
-    .instagram-grid {display:grid; grid-template-columns:repeat(3, 1fr); gap:20px;}
-    @media (max-width:900px) {.instagram-grid {grid-template-columns:repeat(2, 1fr);}}
-    @media (max-width:600px) {.instagram-grid {grid-template-columns:1fr;}}
-    .instagram-grid blockquote {border-radius:15px !important; overflow:hidden !important; background:#000 !important;}
-    footer {text-align:center; color:#777; font-size:1rem; padding:40px 20px 70px; user-select:none; border-top:1px solid #222; position:relative;}
-    .social-links {margin:18px 0 6px 0; font-size:1.9rem;}
-    .social-links a {margin:0 18px; color:#fff; text-shadow:0 2px 8px #1118; vertical-align:middle;}
-    .social-links a:hover {color:#fa5746;}
-    #visitor-counter {margin-top:15px; font-style:italic; font-size:0.9rem; color:#aaa; user-select:none;}
-    @media (max-width:900px) {
-      #about {flex-wrap:wrap; text-align:center;}
-      #about > div:first-child, #about .text {max-width:100%;}
-      #about .text {padding-left:0;}
-      #pricing li {flex-direction:column; align-items:flex-start; gap:6px;}
+    body, html {
+      margin: 0;
+      padding: 0;
+      background: #0f0f0f;
+      color: #f0f0f0;
+      font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    a:hover, a:focus {
+      color: #bbb;
+      text-decoration: underline;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(18,18,18,0.95);
+      backdrop-filter: saturate(180%) blur(15px);
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.7);
+      z-index: 1000;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.15em;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo i {
+      font-size: 2.6rem;
+      color: #ddd;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 90px 20px 60px;
+    }
+
+    /* Hero Section */
+    #hero {
+      text-align: center;
+      padding: 150px 20px 100px;
+    }
+    #hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.2rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #fff;
+      letter-spacing: 0.2em;
+      user-select: none;
+    }
+    #hero p {
+      font-size: 1.4rem;
+      font-weight: 500;
+      max-width: 600px;
+      margin: 0 auto 50px;
+      color: #ddd;
+      line-height: 1.5;
+    }
+    #hero p span.no-wrap {
+      white-space: nowrap;
+    }
+    #hero a.btn-primary {
+      background: #222;
+      border: 2px solid #fff;
+      color: #fff;
+      font-weight: 700;
+      padding: 16px 50px;
+      font-size: 1.2rem;
+      border-radius: 40px;
+      box-shadow: none;
+      transition: background 0.3s, color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    #hero a.btn-primary:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    /* neon glow button */
+    .neon-btn {
+      display: inline-block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 14px 36px;
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow:
+        0 0 8px #fff,
+        0 0 16px #fff,
+        0 0 24px #fff,
+        0 0 32px rgba(255,255,255,0.6);
+      transition: box-shadow 0.2s ease-in-out;
+    }
+    .neon-btn:hover,
+    .neon-btn:focus {
+      box-shadow:
+        0 0 12px #fff,
+        0 0 24px #fff,
+        0 0 36px #fff,
+        0 0 48px rgba(255,255,255,0.8);
+      color: #fff;
+    }
+
+    /* About Section */
+    #about {
+      display: flex;
+      gap: 50px;
+      flex-wrap: nowrap;
+      color: #eee;
+      padding-bottom: 70px;
+      text-align: left;
+      align-items: stretch;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    #about > div:first-child {
+      max-width: 380px;
+      border-radius: 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 6px 25px rgba(255,255,255,0.3);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    #about > div:first-child img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+    #about .text {
+      flex-grow: 1;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 20px;
+    }
+    #about .text p:last-child {
+      font-style: italic;
+      text-align: center;
+      margin-top: auto;
+      font-weight: 600;
+      color: #ddd;
+    }
+
+    /* Pricing */
+    #pricing {
+      color: #ddd;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-bottom: 80px;
+    }
+    #pricing ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    #pricing li {
+      padding: 20px 0;
+      border-bottom: 1px solid #333;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+    #pricing li:last-child {
+      border-bottom: none;
+      font-style: italic;
+      color: #aaa;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+
+    /* Hours & Location */
+    #hours {
+      text-align: center;
+      font-size: 1.3rem;
+      color: #bbb;
+      max-width: 420px;
+      margin: 0 auto 90px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    #location-box {
+      max-width: 400px;
+      margin: 22px auto 0 auto;
+      box-shadow: 0 4px 24px #0006;
+      background: #191919;
+      border: 2px solid #ffc107;
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+    #location-box i {
+      font-size: 2rem;
+      color: #ffc107;
+      flex-shrink: 0;
+    }
+    #location-box span {
+      font-size: 1.15rem;
+      color: #f0f0f0;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+    }
+
+    /* Contact */
+    #contact {
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-top: 30px;
+      margin-bottom: 100px;
+      color: #fff;
+    }
+    #contact a {
+      font-weight: 700;
+      color: #ddd;
+      text-decoration: underline;
+    }
+
+    /* Reviews */
+    #reviews {
+      max-width: 840px;
+      margin: 0 auto 90px;
+      color: #ccc;
+    }
+    .review-card {
+      background: #222;
+      padding: 30px 35px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 0 22px rgba(255,255,255,0.15);
+      font-style: italic;
+      transition: background 0.3s;
+    }
+    .review-card:hover {
+      background: #333;
+    }
+    .review-stars {
+      color: #ffcc33;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+    .review-author {
+      font-weight: 700;
+      text-align: right;
+      margin-top: 10px;
+      color: #ddd;
+      user-select: none;
+    }
+
+    /* Instagram */
+    #instagram {
+      max-width: 960px;
+      margin: 0 auto 80px;
+      color: #fff;
+    }
+    #instagram h2 {
+      margin-bottom: 40px;
+    }
+    .instagram-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .instagram-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .instagram-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .instagram-grid blockquote {
+      border-radius: 15px !important;
+      overflow: hidden !important;
+      background: #000 !important;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 1rem;
+      padding: 40px 20px 70px;
+      user-select: none;
+      border-top: 1px solid #222;
+      position: relative;
+    }
+    .social-links {
+      margin: 18px 0 6px;
+      font-size: 1.9rem;
+    }
+    .social-links a {
+      margin: 0 18px;
+      color: #fff;
+      text-shadow: 0 2px 8px #1118;
+      vertical-align: middle;
+    }
+    .social-links a:hover {
+      color: #fa5746;
+    }
+    #visitor-counter {
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: #aaa;
+      user-select: none;
+    }
+
+    @media (max-width: 900px) {
+      #about {flex-wrap: wrap; text-align: center;}
+      #about > div:first-child, #about .text {max-width: 100%;}
+      #about .text {padding-left: 0;}
+      #pricing li {flex-direction: column; align-items: flex-start; gap: 6px;}
     }
   </style>
 </head>
@@ -71,15 +371,28 @@
       JT Hair <i class="bi bi-scissors"></i>
     </div>
   </header>
+
   <main>
+    <!-- Hero -->
     <section id="hero">
       <h1>JT Hair</h1>
       <p>
         Beauty Is In The Trust<br />
         <span class="no-wrap">Dry Cutting and Balayage Specialist for Men and Women</span> Fast, Efficient & Stylish
       </p>
-      <a href="https://jthair.github.io/Booking/" class="btn btn-primary">Make Your Appointment</a>
+      <a href="https://jthair.github.io/Booking/" class="btn btn-primary">
+        Make Your Appointment
+      </a>
+
+      <!-- New Client Exclusive Offer neon button -->
+      <div style="margin-top: 40px; text-align: center;">
+        <a href="https://jthair.github.io/Offers/" class="neon-btn">
+          New Client Exclusive Offer click here
+        </a>
+      </div>
     </section>
+
+    <!-- About -->
     <section id="about">
       <div>
         <img
@@ -106,6 +419,8 @@
         <p><em>Beauty Is In The Trust</em></p>
       </div>
     </section>
+
+    <!-- Pricing -->
     <section id="pricing">
       <h2>Pricing</h2>
       <ul>
@@ -118,18 +433,22 @@
         <li>All coloring and treatments are based on consultation.</li>
       </ul>
     </section>
+
+    <!-- Hours & Location -->
     <section id="hours">
       <h2>Business Hours</h2>
       <p>
-        Tuesday - Saturday: 10am to 6pm<br />
+        Tuesday – Saturday: 10am to 6pm<br />
         Major holidays closed<br />
         Appointment only
       </p>
       <div id="location-box">
         <i class="bi bi-geo-alt-fill"></i>
-        <span>3101 Richmond Ave. # 215,<br>Houston, TX 77098</span>
+        <span>3101 Richmond Ave. # 215,<br />Houston, TX 77098</span>
       </div>
     </section>
+
+    <!-- Contact -->
     <section id="contact">
       <h2>Contact</h2>
       <p>
@@ -137,6 +456,8 @@
         Preferred texting but calls accepted
       </p>
     </section>
+
+    <!-- Reviews -->
     <section id="reviews">
       <h2>What Clients Say</h2>
       <div class="review-card">
@@ -161,18 +482,21 @@
         <div class="review-author">– Emily K., Yelp</div>
       </div>
     </section>
+
+    <!-- Instagram -->
     <section id="instagram">
       <h2>Some of my work on Instagram</h2>
       <div class="instagram-grid">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COBZVLjJXBp/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CORu5x2JBsP/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BuDXioogv-n/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BsRCnhBgkki/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BrqXyi7AZjl/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BwAnBi2g37V/" data-instgrm-version="14" style="background:#000; border:none; margin:0; padding:0; width:100%; border-radius: 15px; overflow: hidden;"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COBZVLjJXBp/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CORu5x2JBsP/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BuDXioogv-n/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BsRCnhBgkki/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BrqXyi7AZjl/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BwAnBi2g37V/" data-instgrm-version="14"></blockquote>
       </div>
     </section>
   </main>
+
   <footer>
     <p>Beauty Is In The Trust</p>
     <p>© 2025 JT Hair Salon | Designed by Johnny Thai</p>
@@ -186,6 +510,7 @@
     </div>
     <p id="visitor-counter">Visits from this browser: 0</p>
   </footer>
+
   <script>
     document.addEventListener("DOMContentLoaded", function() {
       var visits = localStorage.getItem('jt_hair_visitor_count');
