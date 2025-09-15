@@ -4,342 +4,297 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JT Hair Salon | Beauty Is In The Trust</title>
-  <!-- Google Fonts -->
+  <meta name="description" content="JT Hair Salon in Houston TX — Dry cutting and balayage specialist for men and women. Fast, efficient, stylish. Book online, view hours, pricing, and location." />
+  <link rel="canonical" href="https://jthair.github.io/" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="JT Hair Salon | Beauty Is In The Trust" />
+  <meta property="og:description" content="Dry cutting and balayage specialist in Houston. Fast, efficient, stylish. Book online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jthair.github.io/" />
+  <meta property="og:image" content="https://i.imgur.com/QKuIyym.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="JT Hair Salon | Beauty Is In The Trust" />
+  <meta name="twitter:description" content="Dry cutting and balayage specialist in Houston. Fast, efficient, stylish. Book online." />
+  <meta name="twitter:image" content="https://i.imgur.com/QKuIyym.png" />
+
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' x='6' font-size='48'%3E%F0%9F%92%87%3C/text%3E%3C/svg%3E" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-  <!-- Bootstrap 5 CSS -->
+
+  <!-- Bootstrap 5 CSS + Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
   <!-- Instagram Embed -->
   <script async defer src="https://www.instagram.com/embed.js"></script>
+
   <style>
-    body, html {
-      margin: 0; padding: 0;
-      background: #0f0f0f; color: #f0f0f0;
-      font-family: 'Montserrat', sans-serif;
-      scroll-behavior: smooth;
+    :root{
+      --bg:#0f0f0f; --text:#f0f0f0; --muted:#bbb; --panel:#191919; --line:#333; --brand:#ffd700; --brand-2:#ffc107;
     }
-    a { color: #fff; text-decoration: none; transition: color .3s; }
-    a:hover, a:focus { color: #bbb; text-decoration: underline; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:#fff;text-decoration:none;transition:color .2s}
+    a:hover,a:focus{text-decoration:underline;color:var(--muted)}
 
-    header {
-      position: fixed; top: 0; left: 0;
-      width: 100%; height: 70px;
-      background: rgba(18,18,18,0.95);
-      backdrop-filter: saturate(180%) blur(15px);
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.7);
-      display: flex; justify-content: center; align-items: center;
-      z-index: 1000;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem; font-weight: 700;
-      letter-spacing: .15em; color: #fff;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .logo i { font-size: 2.6rem; color: #ddd; }
+    .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;background:#000;color:#fff;padding:8px 12px;border-radius:8px;z-index:2000}
 
-    main {
-      max-width: 960px; margin: 0 auto;
-      padding: 100px 20px 60px; /* account for header */
-    }
+    header{position:sticky;top:0;z-index:1000;height:70px;background:rgba(18,18,18,.95);backdrop-filter:saturate(180%) blur(15px);box-shadow:0 2px 8px rgb(0 0 0 / .7);display:flex;justify-content:center;align-items:center}
+    .logo{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;letter-spacing:.12em;display:flex;align-items:center;gap:8px}
+    .logo i{font-size:2.2rem;color:#ddd}
 
-    /* Hero */
-    #hero { text-align: center; margin-bottom: 60px; }
-    #hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 4.2rem; font-weight: 700;
-      margin-bottom: 25px; letter-spacing: .2em;
-    }
-    #hero p {
-      font-size: 1.4rem; font-weight: 500;
-      max-width: 600px; margin: 0 auto 30px;
-      line-height: 1.5; color: #ddd;
-    }
-    #hero a.btn-primary {
-      background: #222; border: 2px solid #fff;
-      color: #fff; font-weight: 700;
-      padding: 16px 50px; border-radius: 40px;
-      text-transform: uppercase; letter-spacing: .12em;
-      transition: background .3s, color .3s;
-    }
-    #hero a.btn-primary:hover {
-      background: #fff; color: #000; border-color: #fff;
-    }
-    .neon-btn {
-      display: inline-block; margin-top: 20px;
-      font-size: 1.4rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: .1em;
-      padding: 14px 36px; color: #fff;
-      border: 2px solid #fff; border-radius: 8px;
-      box-shadow:
-        0 0 8px #fff,
-        0 0 16px #fff,
-        0 0 24px #fff,
-        0 0 32px rgba(255,255,255,.6);
-      transition: box-shadow .2s ease-in-out;
-    }
-    .neon-btn:hover {
-      box-shadow:
-        0 0 12px #fff,
-        0 0 24px #fff,
-        0 0 36px #fff,
-        0 0 48px rgba(255,255,255,.8);
-    }
+    main{max-width:960px;margin:0 auto;padding:24px 20px 80px}
 
-    /* About */
-    #about {
-      display: flex; flex-wrap: wrap; gap: 50px;
-      margin-bottom: 60px;
-    }
-    #about > div:first-child {
-      flex: 0 0 380px;
-      border: 4px solid #fff; border-radius: 20px;
-      box-shadow: 0 6px 25px rgba(255,255,255,.3);
-      overflow: hidden;
-    }
-    #about img { width: 100%; display: block; }
-    #about .text {
-      flex: 1; color: #eee; padding: 0 20px;
-      display: flex; flex-direction: column;
-      justify-content: center;
-    }
-    #about .text p:last-child {
-      margin-top: 1rem; text-align: center;
-      font-style: italic; color: #ddd;
-    }
+    /* hero */
+    #hero{text-align:center;margin:40px 0 60px}
+    #hero h1{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;letter-spacing:.16em;margin:.2em 0 .4em}
+    #hero p{font-size:1.2rem;font-weight:500;max-width:640px;margin:0 auto 24px;color:#ddd}
+    .btn-primary{background:#222;border:2px solid #fff;color:#fff;font-weight:700;padding:14px 40px;border-radius:40px;text-transform:uppercase;letter-spacing:.12em}
+    .btn-primary:hover{background:#fff;color:#000}
+    .neon-btn{display:inline-block;margin-top:16px;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:12px 28px;color:#fff;border:2px solid #fff;border-radius:10px;box-shadow:0 0 8px #fff,0 0 16px #fff,0 0 24px #fff,0 0 32px rgb(255 255 255 / .6)}
+    .neon-btn:hover{box-shadow:0 0 12px #fff,0 0 24px #fff,0 0 36px #fff,0 0 48px rgb(255 255 255 / .8)}
 
-    /* Pricing */
-    #pricing { margin-bottom: 60px; text-align: center; }
-    #pricing ul {
-      list-style: none; padding: 0; margin: 0 auto 60px;
-      max-width: 700px;
-    }
-    #pricing li {
-      display: flex; justify-content: space-between;
-      padding: 20px 0; border-bottom: 1px solid #333;
-      color: #fff; font-weight: 600;
-    }
-    #pricing li:last-child { border: none; font-style: italic; color: #aaa; }
+    /* about */
+    #about{display:flex;flex-wrap:wrap;gap:32px;margin:60px 0}
+    #about > .portrait{flex:0 0 360px;border:3px solid #fff;border-radius:18px;box-shadow:0 6px 22px rgb(255 255 255 / .18);overflow:hidden}
+    #about img{width:100%;height:auto;display:block}
+    #about .text{flex:1;min-width:260px;color:#eee;padding:0 8px;display:flex;flex-direction:column;justify-content:center}
+    #about .text p:last-child{margin-top:1rem;text-align:center;font-style:italic;color:#ddd}
 
-    /* Hours & Location */
-    #hours {
-      text-align: center; margin-bottom: 60px; color: #bbb;
-    }
-    #location-box {
-      background: #191919; border: 2px solid #ffc107;
-      border-radius: 16px; padding: 18px;
-      display: inline-flex; align-items: center; gap: 10px;
-      margin-top: 10px;
-    }
-    #location-box i { color: #ffc107; font-size: 2rem; }
-    #location-box span { color: #f0f0f0; font-weight: bold; }
+    /* pricing */
+    #pricing{margin:60px 0;text-align:center}
+    #pricing ul{list-style:none;padding:0;margin:0 auto 28px;max-width:760px}
+    #pricing li{display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);font-weight:600}
+    #pricing li:last-child{border:none;font-style:italic;color:#aaa}
 
-    /* Contact */
-    #contact {
-      text-align: center; margin-bottom: 60px;
-    }
-    #contact a { color: #ffd700; text-decoration: underline; }
+    /* hours & location */
+    #hours{text-align:center;margin:60px 0;color:#ccc}
+    #location-box{background:var(--panel);border:2px solid var(--brand-2);border-radius:16px;padding:16px;display:inline-flex;align-items:center;gap:12px;margin-top:10px}
+    #location-box i{color:var(--brand-2);font-size:1.6rem}
+    #location-box span{color:#f0f0f0;font-weight:700}
+    .cta-row{margin-top:12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
-    /* Reviews */
-    #reviews {
-      margin-bottom: 60px; max-width: 840px; margin: 0 auto 60px;
-    }
-    .review-card {
-      background: #222; padding: 30px; border-radius: 20px;
-      box-shadow: 0 0 22px rgba(255,255,255,.15); margin-bottom: 28px;
-      font-style: italic;
-    }
-    .review-stars { color: #ffcc33; font-size: 1.4rem; margin-bottom: 15px; }
-    .review-author { text-align: right; color: #ddd; font-weight: 700; }
+    /* contact */
+    #contact{text-align:center;margin:60px 0}
+    #contact a{color:var(--brand);text-decoration:underline}
 
-    /* Instagram grid */
-    #instagram { margin-bottom: 60px; }
-    #instagram h2 { text-align: center; margin-bottom: 40px; }
-    .instagram-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    @media (max-width: 900px) {
-      .instagram-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .instagram-grid { grid-template-columns: 1fr; }
-    }
-    .instagram-grid blockquote {
-      position: relative !important;
-      margin: 0 !important; padding: 0 !important; border: none !important;
-    }
-    .instagram-grid blockquote::before {
-      content: "";
-      display: block;
-      padding-top: 100%;
-    }
-    .instagram-grid blockquote > div {
-      position: absolute !important;
-      top: 0; left: 0;
-      width: 100% !important;
-      height: 100% !important;
-    }
+    /* reviews */
+    #reviews{max-width:860px;margin:0 auto 60px}
+    .review-card{background:#222;padding:24px;border-radius:18px;box-shadow:0 0 22px rgb(255 255 255 / .12);margin-bottom:22px;font-style:italic}
+    .review-stars{color:#ffcc33;font-size:1.2rem;margin-bottom:10px}
+    .review-author{text-align:right;color:#ddd;font-weight:700}
 
-    /* Footer */
-    footer {
-      text-align: center; color: #777;
-      padding: 40px 20px 70px; border-top: 1px solid #222;
-    }
-    .social-links {
-      margin-bottom: 10px; font-size: 1.9rem;
-    }
-    .social-links a { margin: 0 12px; color: #fff; }
-    #visitor-counter { font-style: italic; color: #aaa; }
+    /* instagram */
+    #instagram{margin:60px 0}
+    #instagram h2{text-align:center;margin-bottom:22px}
+    .instagram-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width:900px){.instagram-grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:600px){.instagram-grid{grid-template-columns:1fr}}
+    .instagram-grid blockquote{position:relative !important;margin:0 !important;padding:0 !important;border:none !important}
+    .instagram-grid blockquote::before{content:"";display:block;padding-top:100%}
+    .instagram-grid blockquote > div{position:absolute !important;inset:0}
 
-    /* Payments section */
-    #payments { margin: 20px 0; }
-    #payments h4 { color:#fff; margin-bottom: 15px; }
-    #payments .payment-icons {
-      font-size: 2rem; color: #ffd700;
-      display: flex; justify-content: center; gap: 25px; flex-wrap: wrap;
-    }
-    #payments p { margin-top: 12px; color:#ccc; font-size: 0.95rem; }
+    /* footer */
+    footer{text-align:center;color:#777;padding:40px 20px 90px;border-top:1px solid #222}
+    .social-links{margin-bottom:10px;font-size:1.7rem}
+    .social-links a{margin:0 10px;color:#fff}
+    #visitor-counter{font-style:italic;color:#aaa}
+
+    /* payments */
+    #payments{margin:24px 0}
+    #payments h4{color:#fff;margin-bottom:10px}
+    #payments .payment-icons{font-size:1.7rem;color:var(--brand);display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+    #payments p{margin-top:8px;color:#ccc;font-size:.98rem}
+
+    /* sticky book bar */
+    .book-bar{position:fixed;right:16px;bottom:16px;z-index:1100}
+    .book-bar a{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;background:var(--brand);color:#000;font-weight:800;box-shadow:0 10px 24px rgb(0 0 0 / .35)}
+    .book-bar a:hover{text-decoration:none;filter:brightness(0.95)}
+
+    @media (prefers-reduced-motion: reduce){*{scroll-behavior:auto} .neon-btn,.btn-primary{transition:none}}
   </style>
+
+  <!-- JSON-LD (LocalBusiness / HairSalon) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "JT Hair Salon",
+    "image": "https://i.imgur.com/QKuIyym.png",
+    "slogan": "Beauty Is In The Trust",
+    "url": "https://jthair.github.io/",
+    "telephone": "+1-832-860-6584",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3101 Richmond Ave. #215",
+      "addressLocality": "Houston",
+      "addressRegion": "TX",
+      "postalCode": "77098",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {"@type":"OpeningHoursSpecification","dayOfWeek":["Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"18:00"}
+    ],
+    "priceRange": "$$",
+    "paymentAccepted": "Cash, Zelle, Venmo, Cash App, Credit Card",
+    "sameAs": [
+      "https://www.instagram.com/jt_hair/",
+      "https://www.yelp.com/biz/jt-hair-salon-houston"
+    ]
+  }
+  </script>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      JT Hair <i class="bi bi-scissors"></i>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header role="banner" aria-label="Site header">
+    <div class="logo" aria-label="JT Hair logo">
+      JT Hair <i class="bi bi-scissors" aria-hidden="true"></i>
     </div>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section id="hero">
-      <h1>JT Hair</h1>
+  <main id="main" role="main" aria-label="Main content">
+    <!-- hero -->
+    <section id="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title">JT Hair</h1>
       <p>
         Beauty Is In The Trust<br />
-        <span class="no-wrap">Dry Cutting and Balayage Specialist for Men and Women</span><br />
-        Fast, Efficient & Stylish
+        <span class="no-wrap">Dry cutting and balayage specialist for men and women</span><br />
+        Fast, efficient, stylish
       </p>
-      <a href="https://jthair.github.io/Booking/" class="btn btn-primary">Make Your Appointment</a>
-      <div>
-        <a href="https://jthair.github.io/Offers/" class="neon-btn">New Clients Exclusive Offers • Click Here</a>
-      </div>
+      <p class="d-flex gap-2 justify-content-center flex-wrap">
+        <a href="https://jthair.github.io/Booking/" class="btn btn-primary" aria-label="Book an appointment">Make Your Appointment</a>
+        <a href="https://jthair.github.io/Offers/" class="neon-btn" aria-label="View new client offers">New Clients Exclusive Offers • Click Here</a>
+      </p>
     </section>
 
-    <!-- About -->
-    <section id="about">
-      <div>
-        <img src="https://i.imgur.com/QKuIyym.png" alt="Johnny Thai" />
+    <!-- about -->
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="visually-hidden">About JT Hair</h2>
+      <div class="portrait">
+        <img src="https://i.imgur.com/QKuIyym.png" alt="Portrait of Johnny Thai, stylist at JT Hair" loading="lazy" />
       </div>
       <div class="text">
         <p>I’m Johnny Thai, a stylist with over 15 years of experience working with both men and women. I specialize in dry cuts that save you time without compromising style.</p>
         <p>Besides cutting, I’m also known for my balayage coloring technique. When your hair is in good condition, and expectations are realistic, balayage adds natural color and dimension to dull hair.</p>
-        <p>I was unable to operate for a while due to my unexpected open heart surgery, but now I’m back better than ever.</p>
+        <p>I was unable to operate for a while due to an unexpected open heart surgery, but now I’m back better than ever.</p>
         <p>Hair isn’t just a job for me, it’s a passion that grows stronger every day. Thanks to social media, I’m always learning new techniques to bring you the best look.</p>
         <p><em>Beauty Is In The Trust</em></p>
       </div>
     </section>
 
-    <!-- Pricing -->
-    <section id="pricing">
-      <h2>Pricing</h2>
-      <ul>
+    <!-- pricing -->
+    <section id="pricing" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Pricing</h2>
+      <ul aria-label="Service menu">
         <li><span>Women Dry Cut</span><span>$65 · 45 mins</span></li>
         <li><span>Women Dry Cut + Shampoo &amp; Blow Dry</span><span>$90 · 60 mins</span></li>
         <li><span>Blowout</span><span>$45 · 30 mins</span></li>
         <li><span>Men Buzz Cut</span><span>$30 · 15 mins</span></li>
         <li><span>Men Scissor Cut</span><span>$45 · 25 mins</span></li>
         <li><span>Men Shampoo</span><span>$15 · 5 mins</span></li>
+        <li><span>Balayage and Foilayage Highlights</span><span>Starting at $250 · 3 hrs+</span></li>
+        <li><span>Color Correction</span><span>Starting at $250 · 3 hrs+</span></li>
+        <li><span>One Process Color</span><span>Starting at $65 · 1 hr+</span></li>
+        <li><span>Hair Treatments</span><span>$45+ · 30 mins – 1 hr</span></li>
         <li>All coloring and treatments are based on consultation.</li>
       </ul>
     </section>
 
-    <!-- Hours & Location -->
-    <section id="hours">
-      <h2>Business Hours</h2>
-      <p>Tuesday to Saturday: 10am to 6pm<br/>Major holidays closed<br/>Appointment only</p>
-      <div id="location-box">
-        <i class="bi bi-geo-alt-fill"></i>
-        <span>3101 Richmond Ave. # 215,<br/>Houston, TX 77098</span>
+    <!-- hours & location -->
+    <section id="hours" aria-labelledby="hours-title">
+      <h2 id="hours-title">Business Hours</h2>
+      <p>Tuesday to Saturday: 10am to 6pm<br />Major holidays closed<br />Appointment only</p>
+      <div id="location-box" role="group" aria-label="Location">
+        <i class="bi bi-geo-alt-fill" aria-hidden="true"></i>
+        <span>3101 Richmond Ave. # 215,<br />Houston, TX 77098</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-outline-light btn-sm" href="https://www.google.com/maps/search/?api=1&query=3101+Richmond+Ave+%23215+Houston+TX+77098" target="_blank" rel="noopener">Directions</a>
+        <a class="btn btn-outline-light btn-sm" href="https://jthair.github.io/Booking/">Book Now</a>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Phone: <a href="tel:+18328606584">832-860-6584</a><br/>Preferred texting but calls accepted</p>
+    <!-- contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <p>Phone: <a href="tel:+18328606584" aria-label="Call 832 860 6584">832 860 6584</a> · <a href="sms:+18328606584" aria-label="Text 832 860 6584">Text</a><br />Preferred texting but calls accepted</p>
     </section>
 
-    <!-- Reviews -->
-    <section id="reviews">
-      <h2>What Clients Say</h2>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+    <!-- reviews (static showcase) -->
+    <section id="reviews" aria-labelledby="reviews-title">
+      <h2 id="reviews-title">What Clients Say</h2>
+      <div class="review-card" aria-label="Review from Sarah M on Yelp">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
         <p>"Johnny gave me the best cut ever. Super fast, precise, and stylish!"</p>
         <div class="review-author">– Sarah M., Yelp</div>
       </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+      <div class="review-card" aria-label="Review from Mark D on Google">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
         <p>"I love how efficient Johnny is, and my hair always looks amazing."</p>
         <div class="review-author">– Mark D., Google</div>
       </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
+      <div class="review-card" aria-label="Review from Emily K on Yelp">
+        <div class="review-stars" aria-hidden="true">★★★★★</div>
         <p>"Professional, friendly, and highly skilled. JT Hair is my go-to spot."</p>
         <div class="review-author">– Emily K., Yelp</div>
       </div>
     </section>
 
-    <!-- Instagram Feed -->
-    <section id="instagram">
-      <h2>Some of my work on Instagram</h2>
+    <!-- instagram feed -->
+    <section id="instagram" aria-labelledby="ig-title">
+      <h2 id="ig-title">Some of my work on Instagram</h2>
       <div class="instagram-grid">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COBZVLjJXBp/" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/COBZVLjJXBp/" target="_blank" rel="noopener"></a>
-        </blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CORu5x2JBsP/" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/CORu5x2JBsP/" target="_blank" rel="noopener"></a>
-        </blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BuDXioogv-n/" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/BuDXioogv-n/" target="_blank" rel="noopener"></a>
-        </blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BeWXjeun6vd/" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/BeWXjeun6vd/" target="_blank" rel="noopener"></a>
-        </blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BrqXyi7AZjl/" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/BrqXyi7AZjl/" target="_blank" rel="noopener"></a>
-        </blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BwAnBi2g37V/" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/BwAnBi2g37V/" target="_blank" rel="noopener"></a>
-        </blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COBZVLjJXBp/" data-instgrm-version="14"><a href="https://www.instagram.com/p/COBZVLjJXBp/" target="_blank" rel="noopener" aria-label="Open Instagram post 1"></a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CORu5x2JBsP/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CORu5x2JBsP/" target="_blank" rel="noopener" aria-label="Open Instagram post 2"></a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BuDXioogv-n/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BuDXioogv-n/" target="_blank" rel="noopener" aria-label="Open Instagram post 3"></a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BeWXjeun6vd/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BeWXjeun6vd/" target="_blank" rel="noopener" aria-label="Open Instagram post 4"></a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BrqXyi7AZjl/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BrqXyi7AZjl/" target="_blank" rel="noopener" aria-label="Open Instagram post 5"></a></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BwAnBi2g37V/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BwAnBi2g37V/" target="_blank" rel="noopener" aria-label="Open Instagram post 6"></a></blockquote>
       </div>
+      <noscript><p><a href="https://www.instagram.com/jt_hair/">See @jt_hair on Instagram</a></p></noscript>
     </section>
   </main>
 
-  <footer>
+  <footer role="contentinfo" aria-label="Site footer">
     <p>Beauty Is In The Trust</p>
 
-    <!-- Payment Types -->
+    <!-- payments -->
     <div id="payments">
       <h4>Accepted Payment Methods</h4>
-      <div class="payment-icons">
-        <span title="Cash"><i class="bi bi-cash-stack"></i></span>
-        <span title="Zelle"><i class="bi bi-bank"></i></span>
-        <span title="Venmo"><i class="bi bi-wallet2"></i></span>
-        <span title="Cash App"><i class="bi bi-currency-dollar"></i></span>
-        <span title="Credit Cards"><i class="bi bi-credit-card"></i></span>
+      <div class="payment-icons" aria-label="Payment icons">
+        <span title="Cash" aria-label="Cash"><i class="bi bi-cash-stack"></i></span>
+        <span title="Zelle" aria-label="Zelle"><i class="bi bi-bank"></i></span>
+        <span title="Venmo" aria-label="Venmo"><i class="bi bi-wallet2"></i></span>
+        <span title="Cash App" aria-label="Cash App"><i class="bi bi-currency-dollar"></i></span>
+        <span title="Credit Cards" aria-label="Credit Cards"><i class="bi bi-credit-card"></i></span>
       </div>
       <p>I accept Cash, Zelle, Venmo, Cash App, and all major credit cards.</p>
     </div>
 
-    <p>© 2025 JT Hair Salon | Designed by Johnny Thai</p>
-    <div class="social-links">
-      <a href="https://share.google/MixDa2BV4KUxQkbD6" target="_blank" rel="noopener"><i class="bi bi-google"></i></a>
-      <a href="https://www.yelp.com/biz/jt-hair-salon-houston" target="_blank" rel="noopener"><i class="bi bi-yelp"></i></a>
-      <a href="https://www.instagram.com/jt_hair/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+    <p>© <span id="year"></span> JT Hair Salon | Designed by Johnny Thai</p>
+    <div class="social-links" aria-label="Social links">
+      <a href="https://share.google/MixDa2BV4KUxQkbD6" target="_blank" rel="noopener" aria-label="Google profile"><i class="bi bi-google"></i></a>
+      <a href="https://www.yelp.com/biz/jt-hair-salon-houston" target="_blank" rel="noopener" aria-label="Yelp listing"><i class="bi bi-yelp"></i></a>
+      <a href="https://www.instagram.com/jt_hair/" target="_blank" rel="noopener" aria-label="Instagram profile"><i class="bi bi-instagram"></i></a>
     </div>
-    <p id="visitor-counter">Visits from this browser: 0</p>
+    <p id="visitor-counter" aria-live="polite">Visits from this browser: 0</p>
   </footer>
+
+  <!-- Sticky book now bar -->
+  <div class="book-bar" aria-hidden="false">
+    <a href="https://jthair.github.io/Booking/" aria-label="Book an appointment now"><i class="bi bi-calendar2-check"></i> Book Now</a>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -347,13 +302,21 @@
       let visits = parseInt(localStorage.getItem('jt_hair_visitor_count') || '0', 10);
       visits++;
       localStorage.setItem('jt_hair_visitor_count', visits);
-      document.getElementById('visitor-counter').textContent = 'Visits from this browser: ' + visits;
+      const vc = document.getElementById('visitor-counter');
+      if (vc) vc.textContent = 'Visits from this browser: ' + visits;
 
-      // render Instagram embeds
+      // current year
+      const yr = document.getElementById('year');
+      if (yr) yr.textContent = new Date().getFullYear();
+
+      // render Instagram embeds if script loaded
       if (window.instgrm && instgrm.Embeds && typeof instgrm.Embeds.process === 'function') {
         instgrm.Embeds.process();
       }
     });
   </script>
+
+  <!-- Bootstrap JS (optional, only if you later add components needing it) -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script> -->
 </body>
 </html>
