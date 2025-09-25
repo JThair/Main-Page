@@ -49,9 +49,59 @@
     .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
     .skip-link:focus{position:fixed;left:16px;top:16px;width:auto;height:auto;background:#000;color:#fff;padding:8px 12px;border-radius:8px;z-index:2000}
 
-    header{position:sticky;top:0;z-index:1000;height:70px;background:rgba(18,18,18,.95);backdrop-filter:saturate(180%) blur(15px);box-shadow:0 2px 8px rgb(0 0 0 / .7);display:flex;justify-content:center;align-items:center}
-    .logo{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;letter-spacing:.12em;display:flex;align-items:center;gap:8px}
+    /* Header + centered nav */
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(18,18,18,.95);
+      backdrop-filter:saturate(180%) blur(15px);
+      box-shadow:0 2px 8px rgb(0 0 0 / .7);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:10px 12px 6px;
+    }
+    .logo{
+      font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;letter-spacing:.12em;
+      display:flex;align-items:center;gap:8px;line-height:1
+    }
     .logo i{font-size:2.2rem;color:#ddd}
+
+    /* Top navigation */
+    .topnav{width:100%;display:flex;justify-content:center;margin-top:8px}
+    .topnav ul{
+      list-style:none;margin:0;padding:0;
+      display:flex;justify-content:center;align-items:center; /* keep all items aligned */
+      flex-wrap:wrap;gap:0
+    }
+    .topnav li{position:relative}
+
+    /* unify baseline + height across anchors and menu label */
+    .topnav a,
+    .topnav .menu-label{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:8px;
+      color:#fff;font-weight:600;letter-spacing:.02em;line-height:1;
+      text-decoration:none;
+    }
+    .topnav > ul > li > a:hover,
+    .topnav .menu-label:hover{background:#222}
+
+    /* Non-clickable Services label */
+    .topnav .menu-label{
+      appearance:none;background:transparent;border:0;margin:0;cursor:default;
+      font:inherit; /* inherit font-size/weight for exact alignment */
+    }
+
+    /* Dropdown */
+    .topnav li ul{
+      display:none;position:absolute;left:0;top:100%;
+      background:#000;border:1px solid #222;border-radius:10px;min-width:200px;
+      padding:6px;margin-top:6px;z-index:1200;box-shadow:0 10px 24px rgb(0 0 0 / .4)
+    }
+    .topnav li ul li a{padding:10px 12px;border-radius:8px;white-space:nowrap}
+    .topnav li ul li a:hover{background:#1f1f1f}
+
+    /* Show dropdown on hover and keyboard focus */
+    .topnav li.has-submenu:hover > ul,
+    .topnav li.has-submenu:focus-within > ul{display:block}
 
     main{max-width:960px;margin:0 auto;padding:24px 20px 80px}
 
@@ -161,6 +211,24 @@
     <div class="logo" aria-label="JT Hair logo">
       JT Hair <i class="bi bi-scissors" aria-hidden="true"></i>
     </div>
+
+    <!-- CENTERED TOP NAV WITH NON-CLICKABLE "SERVICES" -->
+    <nav class="topnav" role="navigation" aria-label="Primary">
+      <ul>
+        <li class="has-submenu">
+          <button class="menu-label" aria-haspopup="true" aria-expanded="false">Services ▾</button>
+          <ul aria-label="Services submenu">
+            <li><a href="https://jthair.github.io/Art-Of-Dry-Cutting/">Dry Cutting</a></li>
+            <li><a href="https://jthair.github.io/Balayage/">Balayage</a></li>
+            <li><a href="https://jthair.github.io/Foilayage/">Foilayage</a></li>
+          </ul>
+        </li>
+        <li><a href="#things-to-know">Things To Know</a></li>
+        <li><a href="https://jthair.github.io/Deals/">Deals</a></li>
+        <li><a href="https://jthair.github.io/Deals/">Referrals</a></li>
+        <li><a href="#mentoring">Mentoring</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main id="main" role="main" aria-label="Main content">
@@ -228,7 +296,7 @@
     <!-- contact -->
     <section id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
-      <p>Phone: <a href="tel:+18328606584" aria-label="Call 832 860 6584">832 860 6584</a> · <a href="sms:+18328606584" aria-label="Text 832 860 6584">Text</a><br />Preferred texting but calls accepted</p>
+      <p>Phone: <a href="tel:+18328606584" aria-label="Call 832 860 6584">832 860 6584</a> · <a href="sms:+18328606584" aria-label="Text 832 860 6584">Text</a><br />Preferred texting but calls accepted</p>
     </section>
 
     <!-- reviews (static showcase) -->
