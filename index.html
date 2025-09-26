@@ -33,7 +33,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- Instagram Embed -->
+  <!-- (Embed script left as-is; no embeds used now) -->
   <script async defer src="https://www.instagram.com/embed.js"></script>
 
   <style>
@@ -68,7 +68,7 @@
     .topnav{width:100%;display:flex;justify-content:center;margin-top:8px}
     .topnav ul{
       list-style:none;margin:0;padding:0;
-      display:flex;justify-content:center;align-items:center; /* keep all items aligned */
+      display:flex;justify-content:center;align-items:center;
       flex-wrap:wrap;gap:0
     }
     .topnav li{position:relative}
@@ -87,14 +87,20 @@
     /* Non-clickable Services label */
     .topnav .menu-label{
       appearance:none;background:transparent;border:0;margin:0;cursor:default;
-      font:inherit; /* inherit font-size/weight for exact alignment */
+      font:inherit;
     }
 
-    /* Dropdown */
+    /* Dropdown (FIXED to avoid flicker) */
+    .topnav li.has-submenu{position:relative}
+    /* Invisible buffer to keep hover active when moving into the menu */
+    .topnav li.has-submenu::after{
+      content:""; position:absolute; left:0; right:0; top:100%;
+      height:8px; /* small hover bridge */
+    }
     .topnav li ul{
-      display:none;position:absolute;left:0;top:100%;
-      background:#000;border:1px solid #222;border-radius:10px;min-width:200px;
-      padding:6px;margin-top:6px;z-index:1200;box-shadow:0 10px 24px rgb(0 0 0 / .4)
+      display:none; position:absolute; left:0; top:calc(100% + 4px);
+      background:#000; border:1px solid #222; border-radius:10px; min-width:200px;
+      padding:6px; margin-top:0; z-index:1200; box-shadow:0 10px 24px rgb(0 0 0 / .4)
     }
     .topnav li ul li a{padding:10px 12px;border-radius:8px;white-space:nowrap}
     .topnav li ul li a:hover{background:#1f1f1f}
@@ -144,15 +150,46 @@
     .review-stars{color:#ffcc33;font-size:1.2rem;margin-bottom:10px}
     .review-author{text-align:right;color:#ddd;font-weight:700}
 
-    /* instagram */
-    #instagram{margin:60px 0}
-    #instagram h2{text-align:center;margin-bottom:22px}
-    .instagram-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    @media (max-width:900px){.instagram-grid{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:600px){.instagram-grid{grid-template-columns:1fr}}
-    .instagram-grid blockquote{position:relative !important;margin:0 !important;padding:0 !important;border:none !important}
-    .instagram-grid blockquote::before{content:"";display:block;padding-top:100%}
-    .instagram-grid blockquote > div{position:absolute !important;inset:0}
+    /* ===== NEW Instagram CTA section (replaces old embed grid) ===== */
+    #instagram{
+      margin:60px 0;
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:24px;
+    }
+    #instagram h2{
+      text-align:center;margin-bottom:10px;font-weight:800;
+      display:flex;align-items:center;justify-content:center;gap:10px
+    }
+    .ig-wrap{
+      display:grid;grid-template-columns:1fr;gap:20px;align-items:center;max-width:920px;margin:0 auto;
+    }
+    .ig-text{
+      text-align:center;color:#ddd;font-size:1.05rem;
+    }
+    .ig-text .big{
+      font-size:1.15rem;font-weight:700;color:#fff
+    }
+    .ig-qr{
+      display:flex;justify-content:center;align-items:center;
+    }
+    .ig-qr img{
+      max-width:280px;width:100%;height:auto;border-radius:18px;background:#fff;padding:10px;box-shadow:0 10px 26px rgba(0,0,0,.35)
+    }
+    .ig-actions{
+      text-align:center;margin-top:8px;
+      display:flex;justify-content:center;gap:10px;flex-wrap:wrap
+    }
+    .ig-btn{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--line);
+      background:#222;color:#fff;font-weight:700;text-decoration:none
+    }
+    .ig-btn:hover{background:#2a2a2a}
+    .ig-handle{font-weight:800;color:#fff}
+    @media (min-width: 820px){
+      .ig-wrap{grid-template-columns:1fr 1fr}
+    }
 
     /* footer */
     footer{text-align:center;color:#777;padding:40px 20px 90px;border-top:1px solid #222}
@@ -226,7 +263,7 @@
         <li><a href="#things-to-know">Things To Know</a></li>
         <li><a href="https://jthair.github.io/Deals/">Deals</a></li>
         <li><a href="https://jthair.github.io/Deals/">Referrals</a></li>
-        <li><a href="#mentoring">Mentoring</a></li>
+        <li><a href="https://jthair.github.io/Mentorship/">Mentoring</a></li>
       </ul>
     </nav>
   </header>
@@ -319,18 +356,23 @@
       </div>
     </section>
 
-    <!-- instagram feed -->
+    <!-- NEW Instagram CTA -->
     <section id="instagram" aria-labelledby="ig-title">
-      <h2 id="ig-title">Some of my work on Instagram</h2>
-      <div class="instagram-grid">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/COBZVLjJXBp/" data-instgrm-version="14"><a href="https://www.instagram.com/p/COBZVLjJXBp/" target="_blank" rel="noopener" aria-label="Open Instagram post 1"></a></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CORu5x2JBsP/" data-instgrm-version="14"><a href="https://www.instagram.com/p/CORu5x2JBsP/" target="_blank" rel="noopener" aria-label="Open Instagram post 2"></a></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BuDXioogv-n/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BuDXioogv-n/" target="_blank" rel="noopener" aria-label="Open Instagram post 3"></a></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BeWXjeun6vd/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BeWXjeun6vd/" target="_blank" rel="noopener" aria-label="Open Instagram post 4"></a></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BrqXyi7AZjl/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BrqXyi7AZjl/" target="_blank" rel="noopener" aria-label="Open Instagram post 5"></a></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/BwAnBi2g37V/" data-instgrm-version="14"><a href="https://www.instagram.com/p/BwAnBi2g37V/" target="_blank" rel="noopener" aria-label="Open Instagram post 6"></a></blockquote>
+      <h2 id="ig-title"><i class="bi bi-instagram"></i> Visit My Instagram</h2>
+      <div class="ig-wrap">
+        <div class="ig-text">
+          <p class="big"><i class="bi bi-camera2"></i> Please visit my Instagram page to view all of my work.</p>
+          <p><i class="bi bi-qr-code-scan"></i> Scan the QR code or simply search <span class="ig-handle">@JT_Hair</span> on Instagram.</p>
+          <div class="ig-actions">
+            <a class="ig-btn" href="https://www.instagram.com/jt_hair/" target="_blank" rel="noopener">
+              <i class="bi bi-box-arrow-up-right"></i> Open @JT_Hair
+            </a>
+          </div>
+        </div>
+        <div class="ig-qr">
+          <img src="https://i.imgur.com/1ycnGEv.png" alt="Instagram QR code for @JT_Hair" loading="lazy">
+        </div>
       </div>
-      <noscript><p><a href="https://www.instagram.com/jt_hair/">See @jt_hair on Instagram</a></p></noscript>
     </section>
   </main>
 
@@ -376,15 +418,7 @@
       // current year
       const yr = document.getElementById('year');
       if (yr) yr.textContent = new Date().getFullYear();
-
-      // render Instagram embeds if script loaded
-      if (window.instgrm && instgrm.Embeds && typeof instgrm.Embeds.process === 'function') {
-        instgrm.Embeds.process();
-      }
     });
   </script>
-
-  <!-- Bootstrap JS (optional, only if you later add components needing it) -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script> -->
 </body>
 </html>
